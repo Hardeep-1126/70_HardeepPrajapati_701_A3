@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather Utility</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Weather Utility</h1>
+
+        <form action="/weather" method="POST">
+
+            <label>Enter City Name</label>
+
+            <input
+                type="text"
+                name="city"
+                placeholder="Enter city"
+                required
+            >
+
+            <button type="submit">
+                Get Weather
+            </button>
+
+        </form>
+
+        <% if (error) { %>
+
+            <p class="error">
+                <%= error %>
+            </p>
+
+        <% } %>
+
+
+        <% if (weather) { %>
+
+            <div class="weather">
+
+                <h2>
+                    Weather of <%= weather.city %>
+                </h2>
+
+                <p>
+                    Country:
+                    <%= weather.country %>
+                </p>
+
+                <p>
+                    Temperature:
+                    <%= weather.temperature %> °C
+                </p>
+
+                <p>
+                    Wind Speed:
+                    <%= weather.windSpeed %> km/h
+                </p>
+
+            </div>
+
+        <% } %>
+
+    </div>
+
+</body>
+
+</html>

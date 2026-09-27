@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Registration Result</title>
+
+</head>
+
+<body>
+
+<h1>Registration Successful</h1>
+
+
+<table border="1" cellpadding="10">
+
+    <tr>
+
+        <th>Field</th>
+
+        <th>Data</th>
+
+    </tr>
+
+
+    <tr>
+
+        <td>Username</td>
+
+        <td>
+            <%= data.username %>
+        </td>
+
+    </tr>
+
+
+    <tr>
+
+        <td>Email</td>
+
+        <td>
+            <%= data.email %>
+        </td>
+
+    </tr>
+
+
+    <tr>
+
+        <td>Gender</td>
+
+        <td>
+            <%= data.gender %>
+        </td>
+
+    </tr>
+
+
+    <tr>
+
+        <td>Hobbies</td>
+
+        <td>
+
+            <%= Array.isArray(data.hobbies)
+                ? data.hobbies.join(", ")
+                : data.hobbies
+            %>
+
+        </td>
+
+    </tr>
+
+
+    <tr>
+
+        <td>Profile Picture</td>
+
+        <td>
+
+            <img
+                src="/uploads/<%= profilePic.filename %>"
+                width="150"
+            >
+
+            <br>
+
+            <a
+                href="/download/<%= profilePic.filename %>"
+            >
+
+                Download Profile Picture
+
+            </a>
+
+        </td>
+
+    </tr>
+
+
+    <tr>
+
+        <td>Other Pictures</td>
+
+        <td>
+
+            <% otherPics.forEach(function(pic) { %>
+
+                <img
+                    src="/uploads/<%= pic.filename %>"
+                    width="150"
+                >
+
+                <br>
+
+                <a
+                    href="/download/<%= pic.filename %>"
+                >
+
+                    Download
+
+                </a>
+
+                <br><br>
+
+            <% }) %>
+
+        </td>
+
+    </tr>
+
+</table>
+
+
+<br>
+
+<a href="/">
+
+    Back to Registration
+
+</a>
+
+
+</body>
+
+</html>
